@@ -58,9 +58,6 @@ var svg2 = d3.select("#generated").append("svg")
   .append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-// root = treeData;
-  
-// visualizeit(treeData);
 
 function visualizeit(source, svg) {
 
@@ -109,22 +106,8 @@ function visualizeit(source, svg) {
 d3.json("flare.json", function(error, json) {
   if (error) return console.warn(error);
   var treeData = json;
-  // root = treeData
   visualizeit(treeData, svg);
-  // data = json;
-  // visualizeit();
 });
-
-
-d3.json("generated.json", function(error, json) {
-  if (error) return console.warn(error);
-  var treeData = json;
-  // root = treeData
-  visualizeit(treeData, svg2);
-  // data = json;
-  // visualizeit();
-});
-
 
 </script>
 	
