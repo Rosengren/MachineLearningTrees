@@ -1,7 +1,7 @@
 import copy
 from Buckets import buckets
 
-class Classifier:
+class BayesianClassifier:
 
 	def __init__(self, bucketPrefix, testBucketNumber, dataFormat):
 
@@ -141,7 +141,7 @@ class Classifier:
 def tenfold(bucketPrefix, dataFormat):
 	results = {}
 	for i in range(1, 11):
-		c = Classifier(bucketPrefix, i, dataFormat)
+		c = BayesianClassifier(bucketPrefix, i, dataFormat)
 		t = c.testBucket(bucketPrefix, i)
 		for (key, value) in t.items():
 			results.setdefault(key, {})
@@ -183,16 +183,3 @@ def tenfold(bucketPrefix, dataFormat):
 	print subheader
 	print "\n%5.3f percent correct" % ((correct * 100) / total)
 	print "total of %i instances" % total
-
-
-# # buckets('iris.csv', 'iris', ',', 4)
-# tenfold("iris", "num,num,num,num,class")
-
-# # buckets('heartDisease.csv', 'heartDisease', ',', 13)
-# tenfold("heartDisease", "num,num,num,num,num,num,num,num,num,num,num,num,num,class")
-
-
-# buckets('wine.csv', 'wine', ',', 0)
-# tenfold("wine", "class,num,num,num,num,num,num,num,num,num,num,num,num,num")
-
-

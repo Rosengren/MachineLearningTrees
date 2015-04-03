@@ -1,8 +1,9 @@
 from Tree import Tree
 from Helper import *
+from Buckets import *
+from BayesianClassifier import *
 from DataGenerator import DataGenerator
 # from DecisionTree import DecisionTree
-from Classifier import Classifier
 from Dependence import Dependence
 
 
@@ -31,14 +32,28 @@ if __name__ == '__main__':
 		trees[c] = tree
 
 
-	ouputToCSV('testData.csv', samples)
+	ouputToCSV('datasets/testData.csv', samples)
 	dep = Dependence()
 	jointProbs, indiviProb = dep.train(samples, NUMBER_OF_DIMENSIONS)
 	cA = dep.calculateWeights(jointProbs['A'], indiviProb['A'])
-	cB = calculateWeights(jointProbs['B'], indiviProb['B'])
-	cC = calculateWeights(jointProbs['C'], indiviProb['C'])
-	cD = calculateWeights(jointProbs['D'], indiviProb['D'])
+	cB = dep.calculateWeights(jointProbs['B'], indiviProb['B'])
+	cC = dep.calculateWeights(jointProbs['C'], indiviProb['C'])
+	cD = dep.calculateWeights(jointProbs['D'], indiviProb['D'])
 
 	saveJSONtoFile('flare.json', trees['A'].getJSONFormat())
 
 	dep.printEdges()
+
+
+
+buckets('datasets/iris.csv', 'datasets/iris', ',', 4)
+tenfold("datasets/iris", "num,num,num,num,class")
+
+buckets('datasets/heartDisease.csv', 'datasets/heartDisease', ',', 13)
+tenfold("datasets/heartDisease", "num,num,num,num,num,num,num,num,num,num,num,num,num,class")
+
+
+buckets('datasets/wine.csv', 'datasets/wine', ',', 0)
+tenfold("datasets/wine", "class,num,num,num,num,num,num,num,num,num,num,num,num,num")
+
+

@@ -1,6 +1,5 @@
 import random
 
-# NOTE: remove the column header at the bottom of the first bucket file
 def buckets(filename, bucketName, separator, classColumn):
 	"""the original data is in the file named filename
 	buckeName: the prefix for all the bucket names

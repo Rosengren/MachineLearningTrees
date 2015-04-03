@@ -9,8 +9,6 @@ class Dependence:
 		self.jointProbabilities = {}
 		self.individualProbabilities = {}
 		self.undirectedEdges = []
-		return
-
 
 
 	def printEdges(self, connections=None):
