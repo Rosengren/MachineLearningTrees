@@ -75,12 +75,3 @@ features = [
 
 d = DataGenerator(features)
 root = d.generateTree(features)
-
-	# TODO:
-	#  d-dimensions
-	#  c classes
-	# write method to generate probabilities
-	# write method to assign probabilities to each node
-	# write method that returns the vector and class name
-	# write method that returns all of the classes
-	# write method that writes to file all of the generated data in csv format

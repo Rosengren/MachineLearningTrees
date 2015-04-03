@@ -41,21 +41,10 @@ class DataGenerator:
 			while queue:
 				current = queue[0]
 				ran = round(random.random(), 2)
-				# print "Current: %s" % current.getName()
-				# print "Current probabilities: if Parent = 1 : %f" % current.probabilityGivenOne
-				# print "Current probabilities: if Parent = 0 : %f" % current.probabilityGivenZero
-				# print "ran=%f" % ran
-				# print "curr=%f" % current.getProbability()
 				current.setValue(0 if (ran > current.getProbability()) else 1)
-				# print "curr val set to %d" % current.getValue()
 				sample.append(current.getValue())
-				# print "Looking at children of %s" % current.getName()
 				queue = queue[1:] + current.getChildren()
-				# print "queue contains:"
-				# for x in queue:
-				# 	print "\t%s" % x.getName()
 
 			samples.append(sample)
 
 		return {'name': className, 'samples': samples}
-

@@ -185,14 +185,14 @@ def tenfold(bucketPrefix, dataFormat):
 	print "total of %i instances" % total
 
 
-# buckets('iris.csv', 'iris', ',', 4)
-tenfold("iris", "num,num,num,num,class")
+# # buckets('iris.csv', 'iris', ',', 4)
+# tenfold("iris", "num,num,num,num,class")
 
-# buckets('heartDisease.csv', 'heartDisease', ',', 13)
-tenfold("heartDisease", "num,num,num,num,num,num,num,num,num,num,num,num,num,class")
+# # buckets('heartDisease.csv', 'heartDisease', ',', 13)
+# tenfold("heartDisease", "num,num,num,num,num,num,num,num,num,num,num,num,num,class")
 
 
-buckets('wine.csv', 'wine', ',', 0)
-tenfold("wine", "class,num,num,num,num,num,num,num,num,num,num,num,num,num")
+# buckets('wine.csv', 'wine', ',', 0)
+# tenfold("wine", "class,num,num,num,num,num,num,num,num,num,num,num,num,num")
 
 
